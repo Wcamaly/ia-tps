@@ -4,16 +4,19 @@ import heapq
 class Search:
   @staticmethod
   def exhaustive_search(robot, block_position, limit=(0,10)):
+    iteration = 0
     for x in range(limit[0], limit[1]):
         for y in range(limit[0], limit[1]):
             robot.set_position(x,y)
+            iteration +=1
             if robot.can_mount(block_position):
-                print(f"Encontrado el bloque en la posición {block_position}!")
+                print(f"Encontrado el bloque en la posición {block_position}, numero de iteraciones {iteration}")
                 return
     print("No se encontró el bloque.")
 
   @staticmethod
   def best_first_search(robot, block_position, limit=(0,10)):
+      iteration = 0
       # Inicializar la cola de prioridad con la posición actual del robot
       queue = [(Search.manhattan_distance(robot.get_current_position(), block_position), robot.get_current_position())]
       
@@ -35,9 +38,10 @@ class Search:
           # Mover el robot a la posición actual
           robot.set_position(*current_position)
           
+          iteration +=1
           # Si el robot puede montar el bloque en esta posición, hemos terminado
           if robot.can_mount(block_position):
-            print(f"Encontrado el bloque en la posición {block_position}!")
+            print(f"Encontrado el bloque en la posición {block_position}, numero de iteraciones {iteration}")
             return
           
           # Si no, agregar todas las posiciones vecinas a la cola
