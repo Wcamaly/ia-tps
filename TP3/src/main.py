@@ -15,7 +15,8 @@ size = 50 # puede cambiarse por el valor que guste
 
 # Inicializar la red de Hopfield debe tomar el tamano de la matriz de la imagen aplanada es decir M x N
 hopfield_network = HopfieldNetwork(size*size)
-
+print(f"Tamano de Imagenes {size}")
+print(f"Tamano de Matriz pivot {size*size}")
 
 print(f"Comienzo de entrenamiento {datetime.now()}")
 ## Entrenamiento de la red de hopfiel
