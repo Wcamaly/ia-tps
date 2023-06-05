@@ -15,10 +15,11 @@ size = 50 # puede cambiarse por el valor que guste
 
 # Inicializar la red de Hopfield debe tomar el tamano de la matriz de la imagen aplanada es decir M x N
 hopfield_network = HopfieldNetwork(size*size)
-print(f"Tamano de Imagenes {size}")
-print(f"Tamano de Matriz pivot {size*size}")
+print(f"Tamaño de Imagenes {size}")
+print(f"Tamaño de Matriz pivot {size*size}")
 
-print(f"Comienzo de entrenamiento {datetime.now()}")
+start = datetime.now()
+print(f"Comienzo de entrenamiento {start}")
 ## Entrenamiento de la red de hopfiel
 for image in images:
   processor = ImageProcessor(os.path.join(directory, image), size )
@@ -27,7 +28,10 @@ for image in images:
   vector = processor.get_vectorized_image()
   # Entrenar la red de Hopfield
   hopfield_network.train([vector]) # Nota: El método 'train' espera una lista de imágenes
-print (f"Finalizado de entrenamiento {datetime.now()} ")
+end = datetime.now()
+print (f"Finalizado de entrenamiento {end} ")
+print (f"Tiempo de entrenamiento {end - start}")
+
 print (f"Matriz pivot")
 print (hopfield_network.getWeight())
 
