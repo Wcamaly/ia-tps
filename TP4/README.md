@@ -14,4 +14,5 @@ Transformada de Hough para la detección de líneas usando la biblioteca OpenCV 
 ```
 
 ## Response
-  
+  ![Imagen con la linea encontrada]
+  (https://github.com/Wcamaly/ia-tps/blob/main/TP4/response/linesResponse.png)
